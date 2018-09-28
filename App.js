@@ -1,16 +1,18 @@
 import React from 'react';
 import Game from './Component/Game'
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import Navigation from './Navigation/Navigation';
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Game/>
-      </View>
-    );
+      
+        <Navigation/>
+
+    )
   }
 }
+
 
 const styles = StyleSheet.create({
   container: {
