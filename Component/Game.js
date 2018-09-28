@@ -1,14 +1,18 @@
 import React from 'react'
 import { View, TouchableOpacity, StyleSheet } from 'react-native'
 
-class Game extends React.Component {
+class Game extends React.Component  {
     render() {
         return (
             <View style={styles.container}>
-                <TouchableOpacity style={[styles.touchable, {backgroundColor: 'red'}]}></TouchableOpacity>
-                <TouchableOpacity style={[styles.touchable, {backgroundColor: 'green'}]}></TouchableOpacity>
-                <TouchableOpacity style={[styles.touchable, {backgroundColor: 'blue'}]}></TouchableOpacity>
-                <TouchableOpacity style={[styles.touchable, {backgroundColor: 'yellow'}]}></TouchableOpacity>
+                <View>
+                    <TouchableOpacity style={[styles.touchable, { backgroundColor: 'red' }]}></TouchableOpacity>
+                    <TouchableOpacity style={[styles.touchable, { backgroundColor: 'green' }]}></TouchableOpacity>
+                </View>
+                <View>
+                    <TouchableOpacity style={[styles.touchable, { backgroundColor: 'blue' }]}></TouchableOpacity>
+                    <TouchableOpacity style={[styles.touchable, { backgroundColor: 'yellow' }]}></TouchableOpacity>
+                </View>
             </View>
         )
     }
@@ -20,10 +24,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         backgroundColor: '#fff',
-      },
-    touchable: {
+    },
+    touchable:  {
         flex: 1,
-        width: 300,
+        width: 200,
         height: 100
     }
 })
