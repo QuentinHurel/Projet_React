@@ -1,11 +1,19 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 
 class Accueil extends React.Component {
+
+    _gameScreen () {
+        this.props.navigation.navigate("Game")
+    }
+
     render() {
+
         return (
             <View>
-                <Text>Coucou</Text>
+                <TouchableOpacity style={{width: 100, height:100}} onPress={() => this._gameScreen()}>
+                    <Text>Game</Text>
+                </TouchableOpacity>
             </View>
         )
     }

@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         flexWrap: 'wrap',
-        backgroundColor: '#fff',
+        backgroundColor: '#fff'
     },
     touchable:  {
         flex: 1,
