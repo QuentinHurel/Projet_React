@@ -9,42 +9,57 @@ class Case extends React.Component{
             red: 1,
             blue: 2,
             green: 3,
-            yellow: 4
+            yellow: 4,
+            numberInput: []
         }
     }
 
-    getValue(x){
-        
-        return x;
+    getValue = (x) => {
+        let list = this.state.numberInput
+        list.push(x)
+        console.log(list)
     }
 
     render() {
         return (
-            <View style={styles.container}>
+    
+            <View style={styles.cubebox}>
                 <View>
-                    <TouchableOpacity style={[styles.touchable, { backgroundColor: 'red' }]} onPress={() => getValue(this.state.red)}></TouchableOpacity>
-                    <TouchableOpacity style={[styles.touchable, { backgroundColor: 'green' }]} onPress={() => getValue(this.state.green)}></TouchableOpacity>
+                    <TouchableOpacity style={[styles.touchable, { backgroundColor: 'red', marginTop: 50, marginRight: 25 }]} onPress={() => this.getValue(this.state.red)}></TouchableOpacity>
+                    <TouchableOpacity style={[styles.touchable, { backgroundColor: 'green', marginRight: 25 }]} onPress={() => this.getValue(this.state.green)}></TouchableOpacity>
                 </View>
                 <View>
-                    <TouchableOpacity style={[styles.touchable, { backgroundColor: 'blue' }]} onPress={() => getValue(this.state.green)}></TouchableOpacity>
-                    <TouchableOpacity style={[styles.touchable, { backgroundColor: 'yellow' }]} onPress={() => getValue(this.state.yellow)}></TouchableOpacity>
+                    <TouchableOpacity style={[styles.touchable, { backgroundColor: 'blue', marginTop: 50 }]} onPress={() => this.getValue(this.state.blue)}></TouchableOpacity>
+                    <TouchableOpacity style={[styles.touchable, { backgroundColor: 'yellow' }]} onPress={() => this.getValue(this.state.yellow)}></TouchableOpacity>
                 </View>
             </View>
         )
     }
 }
 
+
 const styles = StyleSheet.create({
-    container: {
+    cubebox: {
         flex: 1,
         flexDirection: 'row',
+        alignItems: 'center',
+        height:10,
+        justifyContent: 'center',
         flexWrap: 'wrap',
         backgroundColor: '#fff'
     },
-    touchable:  {
+    touchable: {
         flex: 1,
-        width: 200,
-        height: 100
+        width: 150,
+        marginBottom: 40,
+        borderRadius: 10,
+        borderWidth: 10,
+        borderColor: 'black'
+    },
+    text: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
     }
 })
 

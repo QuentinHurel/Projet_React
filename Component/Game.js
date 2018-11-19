@@ -1,47 +1,33 @@
 import React from 'react'
-import { View, TouchableOpacity, StyleSheet, Text } from 'react-native'
+import Case from './Case'
 
 class Game extends React.Component {
+    
+    constructor(props){
+        super(props)
+        this.state = {
+            random: this.generateRandom(),
+            iterate: 3
+        }
+    }
+
+    generateRandom(){
+        let list = []
+        let number
+        for (let i=0; i < 3; i++){
+            number = Math.floor(Math.random() * (5 - 1) + 1);
+            list.push(number)
+            console.log(number)
+        }
+        console.log(list)
+        return list
+    }
+    
     render() {
         return (
-      
-                <View style={styles.cubebox}>
-                    <View>
-                        <TouchableOpacity style={[styles.touchable, { backgroundColor: 'red', marginTop: 50, marginRight: 25 }]} ></TouchableOpacity>
-                        <TouchableOpacity style={[styles.touchable, { backgroundColor: 'green', marginRight: 25 }]}></TouchableOpacity>
-                    </View>
-                    <View>
-                        <TouchableOpacity style={[styles.touchable, { backgroundColor: 'blue', marginTop: 50 }]}></TouchableOpacity>
-                        <TouchableOpacity style={[styles.touchable, { backgroundColor: 'yellow' }]}></TouchableOpacity>
-                    </View>
-                </View>
+            <Case/>
         )
     }
 }
-
-const styles = StyleSheet.create({
-    cubebox: {
-        flex: 1,
-        flexDirection: 'row',
-        alignItems: 'center',
-        height:10,
-        justifyContent: 'center',
-        flexWrap: 'wrap',
-        backgroundColor: '#fff'
-    },
-    touchable: {
-        flex: 1,
-        width: 150,
-        marginBottom: 40,
-        borderRadius: 10,
-        borderWidth: 10,
-        borderColor: 'black'
-    },
-    text: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-    }
-})
 
 export default Game
