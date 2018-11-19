@@ -11,7 +11,7 @@ class Game extends React.Component {
         }
     }
 
-    generateRandom(){
+    generateRandom = () => {
         let list = []
         let number
         for (let i=0; i < 3; i++){
