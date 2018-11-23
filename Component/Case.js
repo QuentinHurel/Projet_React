@@ -6,12 +6,12 @@ class Case extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            red: 1,
-            blue: 2,
-            green: 3,
-            yellow: 4,
             numberInput: []
         }
+        this.red = 1
+        this.blue = 2
+        this.green = 3
+        this.yellow = 4
     }
 
     getValue = (x) => {
@@ -20,17 +20,21 @@ class Case extends React.Component{
         console.log(list)
     }
 
+    getNumberInput(){
+        return this.state.numberInput;
+    }
+
     render() {
         return (
     
             <View style={styles.cubebox}>
                 <View>
-                    <TouchableOpacity style={[styles.touchable, { backgroundColor: 'red', marginTop: 50, marginRight: 25 }]} onPress={() => this.getValue(this.state.red)}></TouchableOpacity>
-                    <TouchableOpacity style={[styles.touchable, { backgroundColor: 'green', marginRight: 25 }]} onPress={() => this.getValue(this.state.green)}></TouchableOpacity>
+                    <TouchableOpacity style={[styles.touchable, { backgroundColor: 'red', marginTop: 50, marginRight: 25 }]} onPress={() => this.getValue(this.red)}></TouchableOpacity>
+                    <TouchableOpacity style={[styles.touchable, { backgroundColor: 'green', marginRight: 25 }]} onPress={() => this.getValue(this.green)}></TouchableOpacity>
                 </View>
                 <View>
-                    <TouchableOpacity style={[styles.touchable, { backgroundColor: 'blue', marginTop: 50 }]} onPress={() => this.getValue(this.state.blue)}></TouchableOpacity>
-                    <TouchableOpacity style={[styles.touchable, { backgroundColor: 'yellow' }]} onPress={() => this.getValue(this.state.yellow)}></TouchableOpacity>
+                    <TouchableOpacity style={[styles.touchable, { backgroundColor: 'blue', marginTop: 50 }]} onPress={() => this.getValue(this.blue)}></TouchableOpacity>
+                    <TouchableOpacity style={[styles.touchable, { backgroundColor: 'yellow' }]} onPress={() => this.getValue(this.yellow)}></TouchableOpacity>
                 </View>
             </View>
         )
