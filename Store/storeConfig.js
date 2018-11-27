@@ -1,3 +1,5 @@
+import { createStore } from 'redux'
+
 const initialState = { iterate: 3 }
 
 function iterateReducer(state = initialState, action) {
@@ -15,4 +17,4 @@ function iterateReducer(state = initialState, action) {
     }
 }
 
-export default iterateReducer
+export default createStore(iterateReducer)
