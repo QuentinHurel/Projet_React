@@ -3,28 +3,26 @@ import Case from './Case'
 
 class Game extends React.Component {
 
-    }
-    
-        return list
-            console.log(number)
-        console.log(list)
-
-        let round = this.state.iterate
-        for (let i=0; i < round; i++){
-            number = Math.floor(Math.random() * (5 - 1) + 1);
-        let number
-    generateRandom(){
-        let list = []
+    constructor(props){
+        super(props)
+        this.state = {
+            random: this.generateRandom()
+        }
         
     }
-        }
-            random: this.generateRandom.bind(this)
-            iterate: 3,
-        this.state = {
-        super(props)
-    constructor(props){
+
+    generateRandom(){
+        let list = []
+        let number
+        for (let i=0; i < 4; i++){
+            number = Math.floor(Math.random() * (5 - 1) + 1);
             list.push(number)
+            console.log(number)
         }
+        console.log(list)
+        return list
+    }
+    
     render() {
         return (
             <Case/>
