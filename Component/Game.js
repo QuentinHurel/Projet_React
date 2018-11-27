@@ -1,5 +1,6 @@
 import React from 'react'
 import Case from './Case'
+import { connect } from 'react-redux'
 
 class Game extends React.Component {
 
@@ -12,6 +13,7 @@ class Game extends React.Component {
     }
 
     generateRandom(){
+        console.log(this.props)
         let list = []
         let number
         for (let i=0; i < 4; i++){
@@ -30,4 +32,8 @@ class Game extends React.Component {
     }
 }
 
-export default Game
+const mapStateToProps = (state) => {
+    return state
+}
+
+export default connect(mapStateToProps)(Game)

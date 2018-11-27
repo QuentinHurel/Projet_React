@@ -1,13 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import {View, TouchableOpacity, StyleSheet} from 'react-native';
 
 class Case extends React.Component{
 
     constructor(props){
         super(props);
-        this.state = {
-            numberInput: []
-        }
         this.red = 1
         this.blue = 2
         this.green = 3
@@ -67,5 +65,8 @@ const styles = StyleSheet.create({
     }
 })
 
+const mapStateToProps = (state) => {
+    return state
+}
 
-export default Case;
+export default connect()(Case);
