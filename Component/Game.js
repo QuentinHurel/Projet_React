@@ -13,16 +13,22 @@ class Game extends React.Component {
     }
 
     generateRandom(){
-        console.log(this.props)
+        let iterate = this.props.iterate
         let list = []
         let number
-        for (let i=0; i < 4; i++){
+        for (let i=0; i < iterate; i++){
             number = Math.floor(Math.random() * (5 - 1) + 1);
             list.push(number)
             console.log(number)
         }
         console.log(list)
         return list
+    }
+
+    checkResult(){
+        let result = this.props.numberInput
+        let random = this.state.random
+        console.log('rendu ' + random)
     }
     
     render() {

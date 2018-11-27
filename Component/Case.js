@@ -13,13 +13,13 @@ class Case extends React.Component{
     }
 
     getValue = (x) => {
-        let list = this.state.numberInput
+        let list = this.props.numberInput
         list.push(x)
         console.log(list)
     }
 
     getNumberInput(){
-        return this.state.numberInput;
+        return this.props.numberInput
     }
 
     render() {
@@ -69,4 +69,4 @@ const mapStateToProps = (state) => {
     return state
 }
 
-export default connect()(Case);
+export default connect(mapStateToProps)(Case);
