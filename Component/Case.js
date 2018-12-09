@@ -1,13 +1,11 @@
 import React from 'react';
 import {View, TouchableOpacity, StyleSheet} from 'react-native';
+import { connect } from 'react-redux'
 
 class Case extends React.Component{
 
     constructor(props){
-        super(props);
-        this.state = {
-            numberInput: []
-        }
+        super(props)
         this.red = 1
         this.blue = 2
         this.green = 3
@@ -15,13 +13,9 @@ class Case extends React.Component{
     }
 
     getValue = (x) => {
-        let list = this.state.numberInput
+        let list = this.props.numberInput
         list.push(x)
         console.log(list)
-    }
-
-    getNumberInput(){
-        return this.state.numberInput;
     }
 
     render() {
@@ -67,5 +61,12 @@ const styles = StyleSheet.create({
     }
 })
 
+const mapStateToProps = (state) => {
+    return {
+        numberInput: state.numberInput
+    }
+}
 
-export default Case;
+
+
+export default connect(mapStateToProps)(Case)
