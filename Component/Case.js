@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import {View, TouchableOpacity, StyleSheet} from 'react-native';
-import { connect } from 'react-redux'
 
 class Case extends React.Component{
 
@@ -13,7 +12,7 @@ class Case extends React.Component{
         this.yellow = 4
     }
 
-    getValue = (x) => {
+        getValue = (x) => {
         let list = this.props.numberInput
         list.push(x)
         console.log(list)
