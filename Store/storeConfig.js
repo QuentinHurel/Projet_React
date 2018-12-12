@@ -5,10 +5,17 @@ const initialState = { iterate: 3, numberInput: [] }
 function iterateReducer(state = initialState, action) {
     let nextState
     switch (action.type) {
-        case 'INCREMENT_ITERATION' :
+        case 'INCREMENT_ITERATION':
             nextState = {
                 ...state,
-                iterate: iterate +1
+                iterate: iterate + 1
+            }
+            return nextState || state
+
+        case 'REBOOT_ITERATION':
+            nextState = {
+                ...state,
+                iterate: 3
             }
             return nextState || state
 

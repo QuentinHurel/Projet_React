@@ -9,11 +9,9 @@ class Game extends React.Component {
         this.state = {
             random: this.generateRandom()
         }
-
     }
 
     generateRandom(){
-        let iterate = this.props.iterate
         let list = []
         let iterate = this.props.iterate
         console.log(this.props)
@@ -23,17 +21,37 @@ class Game extends React.Component {
             list.push(number)
             console.log(number)
         }
-        console.log(list)
         return list
     }
-
-    checkResult(){
+    
+    play(){
         let result = this.props.numberInput
         let random = this.state.random
-        console.log('rendu ' + random)
+        let game = setInterval(() => {
+            checkResult()
+        }, 100);
+        function checkResult(){
+            let list = []
+            if(result.length == random.length) {
+                clearInterval(game)
+                for ( let i = 0; i < random.length; i++) {
+                    if ( random[i] == result[i] ) {
+                        list.push(true)
+                    } else {
+                        list.push(false)
+                    }
+                }
+                if (list.includes(false)){
+                    console.log('Tu as perdu')
+                } else {
+                    console.log('Tu as gagné')
+                }
+            }
+        }
     }
-    
-    render() {
+
+    render() {   
+        this.play()
         return (
             <Case />
         )

@@ -12,7 +12,7 @@ class Case extends React.Component{
         this.yellow = 4
     }
 
-    getValue = (x) => {
+        getValue = (x) => {
         let list = this.props.numberInput
         list.push(x)
         console.log(list)
