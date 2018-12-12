@@ -4,17 +4,19 @@ import { connect } from 'react-redux'
 
 class Game extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props)
         this.state = {
             random: this.generateRandom()
         }
-        
+
     }
 
     generateRandom(){
         let iterate = this.props.iterate
         let list = []
+        let iterate = this.props.iterate
+        console.log(this.props)
         let number
         for (let i=0; i < iterate; i++){
             number = Math.floor(Math.random() * (5 - 1) + 1);
@@ -33,7 +35,7 @@ class Game extends React.Component {
     
     render() {
         return (
-            <Case/>
+            <Case />
         )
     }
 }
