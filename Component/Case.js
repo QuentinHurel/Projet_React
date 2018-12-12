@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import {View, TouchableOpacity, StyleSheet} from 'react-native';
-import { connect } from 'react-redux'
 
 class Case extends React.Component{
 
