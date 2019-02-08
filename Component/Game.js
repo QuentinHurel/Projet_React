@@ -13,7 +13,6 @@ class Game extends React.Component {
     }
 
     generateRandom(){
-        let iterate = this.props.iterate
         let list = []
         let iterate = this.props.iterate
         console.log(this.props)

@@ -1,15 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import {View, TouchableOpacity, StyleSheet} from 'react-native';
+import Sound from 'react-native-sound';
 
 class Case extends React.Component{
 
     constructor(props){
         super(props);
+        this.sound_one = new Sound ('../assets/sound_first.mp3')
         this.red = 1
         this.blue = 2
         this.green = 3
         this.yellow = 4
+    }
+
+    getSound(x){
+        x.play()
     }
 
     getValue = (x) => {
@@ -27,7 +33,7 @@ class Case extends React.Component{
     
             <View style={styles.cubebox}>
                 <View>
-                    <TouchableOpacity style={[styles.touchable, { backgroundColor: 'red', marginTop: 50, marginRight: 25 }]} onPress={() => this.getValue(this.red)}></TouchableOpacity>
+                    <TouchableOpacity style={[styles.touchable, { backgroundColor: 'red', marginTop: 50, marginRight: 25}]} onPress={() => this.getValue(this.red) && this.getSound(this.sound_one)}></TouchableOpacity>
                     <TouchableOpacity style={[styles.touchable, { backgroundColor: 'green', marginRight: 25 }]} onPress={() => this.getValue(this.green)}></TouchableOpacity>
                 </View>
                 <View>
