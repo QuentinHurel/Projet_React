@@ -1,6 +1,6 @@
 import { createStore } from 'redux'
 
-const initialState = { iterate: 3, numberInput: [] }
+const initialState = { iterate: 3, numberInput: [], level: 1 }
 
 function iterateReducer(state = initialState, action) {
     let nextState

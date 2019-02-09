@@ -23,6 +23,10 @@ class Game extends React.Component {
         }
         return list
     }
+
+    _resultScreen() {
+        this.props.navigation.navigate("Result")
+    }
     
     play(){
         let result = this.props.numberInput
@@ -43,8 +47,10 @@ class Game extends React.Component {
                 }
                 if (list.includes(false)){
                     console.log('Tu as perdu')
+                    _resultScreen()
                 } else {
                     console.log('Tu as gagné')
+                    _resultScreen()
                 }
             }
         }
