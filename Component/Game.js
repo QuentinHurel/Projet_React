@@ -47,10 +47,10 @@ class Game extends React.Component {
                 }
                 if (list.includes(false)){
                     console.log('Tu as perdu')
-                    _resultScreen()
+                    //_resultScreen()
                 } else {
                     console.log('Tu as gagné')
-                    _resultScreen()
+                    //_resultScreen()
                 }
             }
         }
