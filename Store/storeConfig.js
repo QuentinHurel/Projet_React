@@ -1,8 +1,8 @@
 import { createStore } from 'redux'
 
-const initialState = { iterate: 3, numberInput: [], level: 1 }
+const initialState = { iterate: 3,  numberInput: [], level: 1 }
 
-function iterateReducer(state = initialState, action) {
+function myStoreFunc(state = initialState, action) {
     let nextState
     switch (action.type) {
         case 'INCREMENT_ITERATION':
@@ -19,9 +19,16 @@ function iterateReducer(state = initialState, action) {
             }
             return nextState || state
 
+        case 'REBOOT_NUMBERINPUT':
+            nextState = {
+                ...state,
+                numberInput: []
+            }
+            return nextState || state
+
         default:
             return state
     }
 }
 
-export default createStore(iterateReducer)
+export default createStore(myStoreFunc)
