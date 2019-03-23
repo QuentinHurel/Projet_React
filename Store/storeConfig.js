@@ -8,7 +8,14 @@ function myStoreFunc(state = initialState, action) {
         case 'INCREMENT_ITERATION':
             nextState = {
                 ...state,
-                iterate: iterate + 1
+                iterate: state.iterate + 1
+            }
+            return nextState || state
+
+        case 'INCREMENT_LEVEL':
+            nextState = {
+                ...state,
+                level: state.level + 1
             }
             return nextState || state
 
@@ -19,6 +26,12 @@ function myStoreFunc(state = initialState, action) {
             }
             return nextState || state
 
+        case 'REBOOT_LEVEL':
+            nextState = {
+                ...state,
+                level: 1
+            }
+            return nextState || state
         case 'REBOOT_NUMBERINPUT':
             nextState = {
                 ...state,

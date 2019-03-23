@@ -1,8 +1,6 @@
 import React from 'react'
 import Case from './Case'
-import {
-    connect
-} from 'react-redux'
+import { connect } from 'react-redux'
 
 class Game extends React.Component {
 
@@ -20,17 +18,12 @@ class Game extends React.Component {
         for (let i = 0; i < iterate; i++) {
             number = Math.floor(Math.random() * (5 - 1) + 1);
             list.push(number)
-            console.log(number)
         }
+        console.log('list dans _generateRandom : ' + list)
         return list
     }
 
-    _resultScreen() {
-        this.props.navigation.navigate("Result")
-    }
-
     _checkResult() {
-        let level = this.props.level
         let result = this.props.numberInput
         let random = this.state.random
         let list = []
@@ -41,43 +34,60 @@ class Game extends React.Component {
                 list.push(false)
             }
         }
-        this._incrementNumberInput()
+        this._rebootNumberInput()
         if (list.includes(false)) {
             console.log('Tu as perdu')
-            level = 1
-            this.props.iterate = 3
-            this.setState({random : this._generateRandom()})
+            this._rebootIteration()
+            this._rebootLevel()
+            console.log('level : ' + this.props.level)
             this._resultScreen()
+            this.setState({ random: this._generateRandom() })
         } else {
             console.log('Tu as gagné')
-            level += 1  
-            this.setState({random : this._generateRandom()})
-            //this._incrementIteration()
+            this._incrementIteration()
+            this._incrementLevel()
+            console.log('level : ' + this.props.level)
+            this.setState({ random: this._generateRandom() })
         }
         
-        console.log(this.state.random)
     }
-    
+ 
+    _resultScreen() {
+        this.props.navigation.navigate("Result")
+    }   
 
-    _incrementNumberInput() {
+    _rebootNumberInput() {
         const action = { type: "REBOOT_NUMBERINPUT", value: this.props.numberInput }
         this.props.dispatch(action)
     }
 
-    // _incrementIteration() {
-    //     const action = { type: "INCREMENT_ITERATION", value: this.props.iterate }
-    //     this.props.dispatch(action)
-    // }
+    _rebootIteration() {
+        const action = { type: "REBOOT_ITERATION", value: this.props.numberInput }
+        this.props.dispatch(action)
+    }
+
+    _incrementIteration() {
+        const action = { type: "INCREMENT_ITERATION", value: this.props.iterate }
+        this.props.dispatch(action)
+    }
+
+    _rebootLevel() {
+        const action = { type: "REBOOT_LEVEL", value: this.props.level }
+        this.props.dispatch(action)
+    }
+
+    _incrementLevel() {
+        const action = { type: "INCREMENT_LEVEL", value: this.props.level }
+        this.props.dispatch(action)
+    }
 
     play() {
-        let result = this.props.numberInput
-        let random = this.state.random
         let game = setInterval(() => {
-            if (result.length == random.length) {
+            if ( this.props.numberInput.length == this.state.random.length ) {
                 this._checkResult()
                 clearInterval(game)
             }
-        }, 1000);
+        }, 10);
     }
 
     render() {
