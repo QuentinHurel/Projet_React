@@ -32,6 +32,7 @@ function myStoreFunc(state = initialState, action) {
                 level: 1
             }
             return nextState || state
+            
         case 'REBOOT_NUMBERINPUT':
             nextState = {
                 ...state,
