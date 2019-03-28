@@ -8,6 +8,7 @@ class Case extends React.Component{
 
     constructor(props){
         super(props);
+        this.sound_one = new Sound ('../assets/sound_first.mp3')
         this.red = 1
         this.blue = 2
         this.green = 3
