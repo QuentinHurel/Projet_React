@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import {View, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
+import TouchableScale from 'react-native-touchable-scale';
+
 
 class Case extends React.Component{
 
@@ -11,7 +13,7 @@ class Case extends React.Component{
         this.green = 3
         this.yellow = 4
     }
-
+    
     getValue = (x) => {
         let list = this.props.numberInput
         list.push(x)
@@ -27,12 +29,12 @@ class Case extends React.Component{
     
             <View style={styles.cubebox}>
                 <View>
-                    <TouchableOpacity style={[styles.touchable, { backgroundColor: 'red', marginTop: 50, marginRight: 25 }]} onPress={() => this.getValue(this.red)}></TouchableOpacity>
-                    <TouchableOpacity style={[styles.touchable, { backgroundColor: 'green', marginRight: 25 }]} onPress={() => this.getValue(this.green)}></TouchableOpacity>
+                    <TouchableScale style={[styles.touchable, { backgroundColor: 'red', marginTop: 50, marginRight: 25 }]} onPress={() => this.getValue(this.red)}></TouchableScale>
+                    <TouchableScale style={[styles.touchable, { backgroundColor: 'green', marginRight: 25 }]} onPress={() => this.getValue(this.green)}></TouchableScale>
                 </View>
                 <View>
-                    <TouchableOpacity style={[styles.touchable, { backgroundColor: 'blue', marginTop: 50 }]} onPress={() => this.getValue(this.blue)}></TouchableOpacity>
-                    <TouchableOpacity style={[styles.touchable, { backgroundColor: 'yellow' }]} onPress={() => this.getValue(this.yellow)}></TouchableOpacity>
+                    <TouchableScale style={[styles.touchable, { backgroundColor: 'blue', marginTop: 50 }]} onPress={() => this.getValue(this.blue)}></TouchableScale>
+                    <TouchableScale style={[styles.touchable, { backgroundColor: 'yellow' }]} onPress={() => this.getValue(this.yellow)}></TouchableScale>
                 </View>
             </View>
         )
