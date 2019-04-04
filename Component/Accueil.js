@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
+
 class Accueil extends React.Component {
 
     _gameScreen() {
@@ -7,6 +8,7 @@ class Accueil extends React.Component {
     }
 
     render() {
+
         return (
             <View sytyle={styles.container}>
                 <TouchableOpacity style={styles.toucheable} onPress={() => this._gameScreen()}>
