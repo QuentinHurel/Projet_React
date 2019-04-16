@@ -23,6 +23,7 @@ function myStoreFunc(state = initialState, action) {
             nextState = {
                 ...state,
                 iterate: 3
+                // iterate: 1
             }
             return nextState || state
 

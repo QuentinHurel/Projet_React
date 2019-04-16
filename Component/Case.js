@@ -8,7 +8,6 @@ class Case extends React.Component{
 
     constructor(props){
         super(props);
-        this.sound_one = new Sound ('../assets/sound_first.mp3')
         this.red = 1
         this.blue = 2
         this.green = 3
@@ -30,12 +29,12 @@ class Case extends React.Component{
     
             <View style={styles.cubebox}>
                 <View>
-                    <TouchableScale style={[styles.touchable, { backgroundColor: 'red', marginTop: 50, marginRight: 25 }]} onPress={() => this.getValue(this.red)}></TouchableScale>
-                    <TouchableScale style={[styles.touchable, { backgroundColor: 'green', marginRight: 25 }]} onPress={() => this.getValue(this.green)}></TouchableScale>
+                    <TouchableScale style={[styles.touchable, { backgroundColor: 'red', marginTop: 50, marginRight: 25 }]} onPress={() => this.getValue(this.red)}activeScale={0.8}></TouchableScale>
+                    <TouchableScale style={[styles.touchable, { backgroundColor: 'green', marginRight: 25 }]} onPress={() => this.getValue(this.green)}activeScale={0.8}></TouchableScale>
                 </View>
                 <View>
-                    <TouchableScale style={[styles.touchable, { backgroundColor: 'blue', marginTop: 50 }]} onPress={() => this.getValue(this.blue)}></TouchableScale>
-                    <TouchableScale style={[styles.touchable, { backgroundColor: 'yellow' }]} onPress={() => this.getValue(this.yellow)}></TouchableScale>
+                    <TouchableScale style={[styles.touchable, { backgroundColor: 'blue', marginTop: 50 }]} onPress={() => this.getValue(this.blue)}activeScale={0.8}></TouchableScale>
+                    <TouchableScale style={[styles.touchable, { backgroundColor: 'yellow' }]} onPress={() => this.getValue(this.yellow)}activeScale={0.8}></TouchableScale>
                 </View>
             </View>
         )

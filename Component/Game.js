@@ -23,6 +23,8 @@ class Game extends React.Component {
         return list
     }
 
+    
+
     _checkResult() {
         let result = this.props.numberInput
         let random = this.state.random
@@ -92,8 +94,8 @@ class Game extends React.Component {
 
     render() {
         this.play()
-        return ( <
-            Case / >
+        return (     
+        <Case />
         )
     }
 }
