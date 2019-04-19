@@ -3,6 +3,14 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 
 class Result extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            levelLoose : this._getLevel()
+        }
+    }
+
     _gameScreen() {
         this.props.navigation.navigate("Game")
     }
@@ -13,10 +21,15 @@ class Result extends React.Component {
 
     _getLevel() {
         let level = this.props.level
-        this._rebootLevel()
+        console.log('getLevel')
         return level
     }
 
+    componentDidMount() {
+        this._rebootLevel()
+        console.log('componentDidMount')
+    }
+    
     _rebootLevel = () => {
         const action = { type: "REBOOT_LEVEL", value: this.props.level }
         this.props.dispatch(action)
@@ -25,7 +38,7 @@ class Result extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.message}>Tu as perdu niveau {this._getLevel()}</Text>
+                <Text style={styles.message}>Tu as perdu niveau {this.state.levelLoose}</Text>
                 <TouchableOpacity style={styles.toucheable} onPress={() => this._gameScreen()}>
                     <Text style={styles.text}>Rejouer</Text>
                 </TouchableOpacity>
