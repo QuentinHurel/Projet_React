@@ -4,7 +4,7 @@ import FadeInView from './FadeInView';
 
 class Accueil extends React.Component {
     _gameScreen() {
-        this.props.navigation.navigate("Game")
+        this.props.navigation.push("Game")
     }
 
     render() {
@@ -35,7 +35,8 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         width: 200,
         marginLeft: 105,
-        backgroundColor: '#323840',
+        marginBottom: 100,
+        backgroundColor: '#827676',
         shadowOpacity: 1,
         borderRadius: 10,
         elevation: 10,
@@ -43,14 +44,16 @@ const styles = StyleSheet.create({
     text: {
         fontStyle: ('normal', 'italic'),
         textAlign: 'center',
-        color: '#EEEEEE',
+        fontSize: 20,
+        fontWeight: '800',
+        color: 'black',
         padding: 25,
     },
     titre: {
         fontStyle: ('normal', 'italic'),
         textAlign: 'center',
         color: '#ffffff',
-        marginTop: 100,
+        marginTop: 300,
         fontSize: 50
     },
     backgroundImage: {

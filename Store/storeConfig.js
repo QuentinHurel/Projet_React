@@ -1,10 +1,25 @@
 import { createStore } from 'redux'
 
-const initialState = { iterate: 3,  numberInput: [], level: 1 }
+const initialState = { iterate: 3,  numberInput: [], randomNumber: [], level: 1, enable : false}
 
 function myStoreFunc(state = initialState, action) {
     let nextState
     switch (action.type) {
+        case 'ENABLE_TRUE':
+            nextState = {
+                ...state,
+                enable: true
+            }
+            return nextState || state
+
+        case 'ENABLE_FALSE':
+            nextState = {
+                ...state,
+                enable: false
+            }
+            return nextState || state
+
+
         case 'INCREMENT_ITERATION':
             nextState = {
                 ...state,
@@ -23,7 +38,6 @@ function myStoreFunc(state = initialState, action) {
             nextState = {
                 ...state,
                 iterate: 3
-                // iterate: 1
             }
             return nextState || state
 
@@ -40,6 +54,12 @@ function myStoreFunc(state = initialState, action) {
             }
             return nextState || state
 
+        case 'REBOOT_RANDOMNUMBER':
+            nextState = {
+                ...state,
+                randomNumber: []
+            }
+            return nextState || state
         default:
             return state
     }

@@ -10,10 +10,22 @@ class Result extends React.Component {
     _accueilScreen() {
         this.props.navigation.navigate("Accueil")
     }
+
+    _getLevel() {
+        let level = this.props.level
+        this._rebootLevel()
+        return level
+    }
+
+    _rebootLevel = () => {
+        const action = { type: "REBOOT_LEVEL", value: this.props.level }
+        this.props.dispatch(action)
+    }
+
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.message}>Tu as perdu niveau {this.props.level}</Text>
+                <Text style={styles.message}>Tu as perdu niveau {this._getLevel()}</Text>
                 <TouchableOpacity style={styles.toucheable} onPress={() => this._gameScreen()}>
                     <Text style={styles.text}>Rejouer</Text>
                 </TouchableOpacity>
@@ -23,11 +35,7 @@ class Result extends React.Component {
             </View>
         )
     }
-}
-
-const mapStateToProps = (state) => {
-    return state
-}   
+} 
 
 const styles = StyleSheet.create({
     container: {
@@ -57,4 +65,15 @@ const styles = StyleSheet.create({
     }
 })
 
-export default connect(mapStateToProps)(Result)
+
+const mapStateToProps = (state) => {
+    return state
+}  
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+      dispatch: (action) => { dispatch(action) }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Result)

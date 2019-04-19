@@ -6,13 +6,27 @@ import { createStackNavigator } from 'react-navigation'
 
 const TabNavigator = createStackNavigator({
     Accueil: {
-        screen: Accueil
-    },
-    Game: {
-        screen: Game
-    },
-    Result: {
-        screen: Result
+        screen: Accueil,
+        navigationOptions: () => ({
+            headerMode : 'none'
+        }),
+      },
+      Game: {
+        screen: Game,
+        navigationOptions: () => ({
+            headerBackTitleVisible  : false
+        }),
+      },
+      Result: {
+        screen: Result,
+        navigationOptions: () => ({
+            headerBackTitleVisible : 'false'
+        }),
+    }
+},
+{
+    navigationOptions: {
+        header: null,
     }
 })
 
